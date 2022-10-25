@@ -1,0 +1,49 @@
+<div class="container">
+  <div class="row">
+    <div class="col-6">
+      <form #authForm="ngForm" (ngSubmit)="onSubmit(authForm)">
+        <div class="form-group">
+          <span *ngIf="error" style="color: red">{{ error }}</span>
+          <input
+            type="email"
+            class="form-control"
+            id="exampleInputEmail1"
+            aria-describedby="emailHelp"
+            placeholder="Enter email"
+            ngModel
+            name="email"
+            required
+            minlength="6"
+          />
+        </div>
+        <div class="form-group">
+          <input
+            type="password"
+            class="form-control"
+            id="exampleInputPassword1"
+            placeholder="Password"
+            ngModel
+            name="password"
+            required
+          />
+        </div>
+
+        <button
+          type="submit"
+          class="btn btn-primary"
+          [disabled]="!authForm.valid"
+        >
+          {{ isLoginMode ? "Login" : "Sign-up" }}
+        </button>
+        <button
+          style="margin-left: 10px"
+          type="submit"
+          class="btn btn-primary"
+          (click)="onSwitchMode()"
+        >
+          {{ isLoginMode ? "Sign-up" : "Login" }}
+        </button>
+      </form>
+    </div>
+  </div>
+</div>

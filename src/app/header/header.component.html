@@ -1,0 +1,6 @@
+<h1>Page Lazy Loading</h1>
+<ul>
+  <li><a [routerLink]="'admin/list'">LIST</a></li>
+  <li><a [routerLink]="'auth'">Login</a></li>
+</ul>
+<a *ngIf="isAuthenticated" (click)="onLogout()" ><h3 >Logout</h3></a>
